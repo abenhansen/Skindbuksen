@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<p class="detailhead">Opret ny reservation</p>
+<form method="Post" th:action="@{/createEmp}">
+    <label>Bord Nr:</label>
+    <input type="text" th:field="${employee.fornavn}" required="true" />
+    <label>Tidspunkt</label>
+    <input type="text" th:field="${employee.efternavn}" required="true" />
+    <label>Antal:</label>
+    <input type="text" th:field="${employee.alder}" required="true" />
+    <label>Dato</label>
+    <input type="text" th:field="${employee.stilling}" required="true" />
+    <input type="submit" value="Send" />
+</form>
+</body>
+</html>
