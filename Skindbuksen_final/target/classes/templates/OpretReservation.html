@@ -5,15 +5,19 @@
 </head>
 <body>
 <p class="detailhead">Opret ny reservation</p>
-<form method="Post" th:action="@{/createEmp}">
+<form method="Post" th:action="@{/OpretReservation}">
     <label>Bord Nr:</label>
-    <input type="text" th:field="${employee.fornavn}" required="true" />
-    <label>Tidspunkt</label>
-    <input type="text" th:field="${employee.efternavn}" required="true" />
-    <label>Antal:</label>
-    <input type="text" th:field="${employee.alder}" required="true" />
+    <input type="text" th:field="${reservation.bordNr}" required="true" />
+    <label>Antal</label>
+    <input type="text" th:field="${reservation.antal}" required="true" />
+    <label>Tidspunkt:</label>
+    <input type="text" th:field="${reservation.tidspunkt}" required="true" />
     <label>Dato</label>
-    <input type="text" th:field="${employee.stilling}" required="true" />
+    <input type="date" th:field="${reservation.dato}" required="true" />
+    <label>Fornavn</label>
+    <input type="text" th:field="${reservation.fornavn}" required="true" />
+    <label>Efternavn</label>
+    <input type="text" th:field="${reservation.efternavn}" required="true" />
     <input type="submit" value="Send" />
 </form>
 </body>

@@ -16,6 +16,8 @@ public class HomeController {
 
     @Autowired
    BrugerRepository brugerRepository;
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @RequestMapping(value="/")
     public String home(){
@@ -25,6 +27,25 @@ public class HomeController {
     @RequestMapping(value="/user")
     public String user(){
         return "user";
+    }
+
+    @RequestMapping(value="/reservationInfo")
+    public String reservationInfo(Model model){
+        List<Reservation> all = reservationRepository.findAll();
+        model.addAttribute("reservationer", all);
+        return "reservationInfo";
+    }
+
+    @GetMapping("/OpretReservation")
+    public String OpretReservation(Model model) {
+        model.addAttribute("reservation", new Reservation());
+        return "OpretReservation";
+    }
+    @PostMapping("/OpretReservation")
+    public String OpretReservation(@ModelAttribute Reservation reservation, Model model) {
+        reservationRepository.insert(reservation);
+        model.addAttribute("reservationer", reservationRepository.findAll());
+        return "redirect:reservationInfo";
     }
 
     @RequestMapping(value="/admin")

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<a href="OpretReservation">
+    <button class="btn btn-primary">create</button>
+</a>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Bord nr</th>
+        <th>Antal</th>
+        <th>Tidspunkt</th>
+        <th>Dato</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation: ${reservationer}">
+        <td th:text="${reservation.reservationID}"/>
+        <td th:text="${reservation.bordNr}"/>
+        <td th:text="${reservation.antal}"/>
+        <td th:text="${reservation.tidspunkt}"/>
+        <td th:text="${reservation.dato}"/>
+        <td th:text="${reservation.fornavn}"/>
+        <td th:text="${reservation.efternavn}"/>
+
+        <!--<td>
+            <a th:href="${'details/' + student.studentId}">
+                <button class="btn btn-info">Detaljer</button>
+            </a>
+            <a th:href="${'edit/' + student.studentId}">
+                <button class="btn btn-warning">Rediger</button>
+            </a>
+            <a th:href="${'delete/' + student.studentId}">
+                <button class="btn btn-danger">Slet</button>
+            </a>
+        </td>-->
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
