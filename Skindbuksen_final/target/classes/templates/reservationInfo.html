@@ -22,7 +22,6 @@
     </thead>
     <tbody>
     <tr th:each="reservation: ${reservationer}">
-        <td th:text="${reservation.reservationID}"/>
         <td th:text="${reservation.bordNr}"/>
         <td th:text="${reservation.antal}"/>
         <td th:text="${reservation.tidspunkt}"/>

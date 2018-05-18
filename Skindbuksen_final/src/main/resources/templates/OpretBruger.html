@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form method="Post" th:action="@{/OpretBruger}">
+    <label>Username:</label>
+    <input type="text" th:field="${bruger.username}" required="true" />
+    <label>Password</label>
+    <input type="password" th:field="${bruger.password}" required="true" />
+    <label>Role:</label>
+    <input type="radio" name="role" th:value="ROLE_USER"  th:field="${bruger.roles}" required>Bruger </input>
+    <input type="radio" name="role" th:value="ROLE_ADMIN" th:field="${bruger.roles}" >Admin </input>
+    <input type="submit" value="Send" />
+</form>
+</body>
+</html>

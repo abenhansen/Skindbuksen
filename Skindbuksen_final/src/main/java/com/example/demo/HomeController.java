@@ -16,8 +16,6 @@ public class HomeController {
 
     @Autowired
    BrugerRepository brugerRepository;
-    @Autowired
-    ReservationRepository reservationRepository;
 
     @RequestMapping(value="/")
     public String home(){
@@ -29,28 +27,23 @@ public class HomeController {
         return "user";
     }
 
-    @RequestMapping(value="/reservationInfo")
-    public String reservationInfo(Model model){
-        List<Reservation> all = reservationRepository.findAll();
-        model.addAttribute("reservationer", all);
-        return "reservationInfo";
-    }
-
-    @GetMapping("/OpretReservation")
-    public String OpretReservation(Model model) {
-        model.addAttribute("reservation", new Reservation());
-        return "OpretReservation";
-    }
-    @PostMapping("/OpretReservation")
-    public String OpretReservation(@ModelAttribute Reservation reservation, Model model) {
-        reservationRepository.insert(reservation);
-        model.addAttribute("reservationer", reservationRepository.findAll());
-        return "redirect:reservationInfo";
-    }
-
     @RequestMapping(value="/admin")
-    public String admin(){
+    public String admin(Model model){
+        List<Bruger> all = brugerRepository.findAll();
+        model.addAttribute("brugere", all);
         return "admin";
+    }
+
+    @GetMapping("/OpretBruger")
+    public String OpretBruger(Model model) {
+        model.addAttribute("bruger", new Bruger());
+        return "OpretBruger";
+    }
+    @PostMapping("/OpretBruger")
+    public String OpretBruger(@ModelAttribute Bruger bruger, Model model) {
+        brugerRepository.insert(bruger);
+        model.addAttribute("brugere", brugerRepository.findAll());
+        return "redirect:admin";
     }
 
     @RequestMapping(value="/login")
