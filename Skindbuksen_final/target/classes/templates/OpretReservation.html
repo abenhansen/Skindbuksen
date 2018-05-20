@@ -7,11 +7,11 @@
 <p class="detailhead">Opret ny reservation</p>
 <form method="Post" th:action="@{/OpretReservation}">
     <label>Bord Nr:</label>
-    <input type="text" th:field="${reservation.bordNr}" required="true" />
+    <input type="number" th:field="${reservation.bordNr}" required="true" /> <td th:unless="${reservation.bordNr}==${reservation.bordNr}" ></td>
     <label>Antal</label>
-    <input type="text" th:field="${reservation.antal}" required="true" />
+    <input type="number" th:field="${reservation.antal}" required="true" />
     <label>Tidspunkt:</label>
-    <input type="text" th:field="${reservation.tidspunkt}" required="true" />
+    <input type="time" name="tid" th:field="${reservation.tidspunkt}" required="true" />
     <label>Dato</label>
     <input type="date" th:field="${reservation.dato}" required="true" />
     <label>Fornavn</label>
