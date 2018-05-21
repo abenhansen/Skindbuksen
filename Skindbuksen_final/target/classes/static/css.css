@@ -1,0 +1,31 @@
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.menubutton    {
+    border: 1px solid black;
+    color: deepskyblue;
+    background-color: dimgrey;
+    border-radius: 1px;
+    padding: 5px;
+}
+
+li  {
+    float: left;
+}
+
+
+ul  {
+    list-style-type: none;
+    background-color: black;
+}
+
+.menubutton button:hover {
+    background-color: honeydew;
+}

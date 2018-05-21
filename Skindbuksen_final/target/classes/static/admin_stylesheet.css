@@ -1,0 +1,39 @@
+
+
+html{
+    background-color: #F4EED6;
+}
+body{
+    width: 70%;
+    padding: 10px 5%;
+    background-color: white;
+    margin: 2.5% 10%;
+    border: 2px inset #FFFFFF;
+    border-radius: 20px;
+}
+h1 {
+    text-align: center;
+    font-family: helvetica;
+}
+a {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: orange;
+    color: grey;
+    margin: 10px;
+}
+
+a:hover {
+    background-color: grey;
+    color: orange;
+}
+
+div {
+    background-color: white;
+
+}
+
+form{
+    margin: 10px;
+}

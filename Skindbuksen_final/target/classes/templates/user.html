@@ -3,9 +3,18 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Welcome Security with Spring Boot!</title>
+    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
+    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
 </head>
 <body>
+<header>
+    <ul>
+        <li><a ><button class="menubutton">Reservationer</button></a></li>
+        <li><a ><button class="menubutton">Bestillinger</button></a></li>
+        <li><a ><button class="menubutton">Ansatte</button></a></li>
+        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+    </ul>
+</header>
 <h1>Bruger side</h1>
 <a style="color: blue" th:href="@{reservationInfo}">Reservationer</a>
 <a style="color: blue" th:href="@{/}">Home</a>

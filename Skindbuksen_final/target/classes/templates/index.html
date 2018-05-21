@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-
-    <title>Index</title>
-<!--
-    <link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>
--->
-    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
+    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
 </head>
 <body>
+<header>
+    <ul>
+        <li><a ><button class="menubutton">Reservationer</button></a></li>
+        <li><a ><button class="menubutton">Bestillinger</button></a></li>
+        <li><a ><button class="menubutton">Ansatte</button></a></li>
+        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+    </ul>
+</header>
 <div class="container">
     <h1>Login Users</h1>
     <a href="create.html">
