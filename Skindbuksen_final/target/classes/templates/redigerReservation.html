@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>redigerReservation</title>
+</head>
+<body>
+<h1>Redigering af Reservation</h1>
+<div>
+    <form method="Post" th:action="@{/redigerReservation}">
+        <p>ID</p>
+        <!--<input type="number" th:value="${reservation.reservationID}" readonly>-->
+        <!--<input type="text" th:field="${reservation.reservationID}" />-->
+        <input type="number" name="ID" th:field="${reservation.reservationID}"/>
+        <p>Fornavn</p>
+        <input type="text" th:field="${reservation.fornavn}"/>
+        <p>Efternavn</p>
+        <input type="text" th:field="${reservation.efternavn}">
+        <p>Dato</p>
+        <input type="date" th:field="${reservation.dato}"/>
+        <p>Antal gæster</p>
+        <input type="text" th:field="${reservation.antal}"/>
+        <p>Tidspunkt</p>
+        <input type="time" th:field="${reservation.tidspunkt}"/>
+        <p>Bord nummer</p>
+        <input type="text" th:field="${reservation.bordNr}"/>
+        <input type="submit" value="Send"/>
+    </form>
+</div>
+</body>
+</html>

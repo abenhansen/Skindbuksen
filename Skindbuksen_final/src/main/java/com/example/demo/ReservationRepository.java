@@ -19,7 +19,7 @@ public class ReservationRepository {
         @Override
         public Reservation mapRow(ResultSet rs, int rowNum) throws SQLException {
             Reservation reservation = new Reservation();
-            reservation.setReservationID(rs.getLong("reservation_id"));
+            reservation.setReservationID(rs.getInt("reservation_id"));
             reservation.setBordNr(rs.getInt("bord_nr"));
             reservation.setAntal(rs.getInt("antal"));
             reservation.setTidspunkt(rs.getString("tidspunkt"));
@@ -34,12 +34,12 @@ public class ReservationRepository {
         return jdbcTemplate.query("select * from reservationer", new ReservationRepository.UserRowMapper());
     }
 
-    public Reservation findById(long id) {
+    public Reservation findById(int id) {
         return jdbcTemplate.queryForObject("select * from reservationer where reservation_id=?", new Object[] { id },
                 new BeanPropertyRowMapper<Reservation>(Reservation.class));
     }
 
-    public int deleteById(long id) {
+    public int deleteById(int id) {
         return jdbcTemplate.update("delete from reservationer where reservation_id=?", new Object[] { id });
     }
 

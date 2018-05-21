@@ -4,8 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class Reservation implements Comparable<Reservation> {
-    private Long reservationID;
+public class Reservation {
+    private int reservationID;
     private int bordNr;
     private int antal;
     private String tidspunkt;
@@ -14,7 +14,7 @@ public class Reservation implements Comparable<Reservation> {
     private String fornavn;
     private String efternavn;
 
-    public Reservation(Long reservationID, int bordNr, int antal, String tidspunkt, Date dato, String fornavn, String efternavn) {
+    public Reservation(int reservationID, int bordNr, int antal, String tidspunkt, Date dato, String fornavn, String efternavn) {
         this.reservationID = reservationID;
         this.bordNr = bordNr;
         this.antal = antal;
@@ -28,11 +28,11 @@ public class Reservation implements Comparable<Reservation> {
 
     }
 
-    public Long getReservationID() {
+    public int getReservationID() {
         return reservationID;
     }
 
-    public void setReservationID(Long reservationID) {
+    public void setReservationID(int reservationID) {
         this.reservationID = reservationID;
     }
 
