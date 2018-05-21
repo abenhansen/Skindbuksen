@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<div class="sletDiv">
+    <h2>Are you sure you want to delete</h2>
+
+    <form action="#" th:action="@{/sletReservation}" method="post">
+        <p>Write ID to confrim deletion</p>
+        <input type="text" th:field="${reservation.reservationID}"/>
+        <input class="btn btn-danger" type="submit" value="YES"/>
+        <a href="/reservationInfo" class="btn btn-create w">NO</a>
+    </form>
+</div>
+</body>
+</html>

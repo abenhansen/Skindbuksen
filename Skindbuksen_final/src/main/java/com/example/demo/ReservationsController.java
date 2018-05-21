@@ -51,4 +51,18 @@ public class ReservationsController {
         model.addAttribute("reservation", reservationRepository.findAll());
         return "redirect:/reservationInfo";
     }
+
+    @GetMapping(value="/sletReservation/{id}")
+    public String sletReservation(@PathVariable("id") int id, Model model) {
+        model.addAttribute("reservation", reservationRepository.findById(id));
+        model.addAttribute("reservationer", reservationRepository.findAll());
+        return "sletReservation";
+    }
+
+    @PostMapping(value="/sletReservation")
+    public String sletReservation(@ModelAttribute Reservation reservation, Model model) {
+        reservationRepository.deleteById(reservation.getReservationID());
+        model.addAttribute("reservationer", reservationRepository.findAll());
+        return "redirect:reservationInfo";
+    }
 }

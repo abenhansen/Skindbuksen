@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
+    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
+    <link rel="Stylesheet" type="text/css" href="css.css"/>
 </head>
 <body>
 <header>
@@ -40,6 +40,9 @@
             <td>
                 <a th:href="${'redigerReservation/' + reservation.reservationID}">
                     <button class="btn btn-warning">Rediger</button>
+                </a>
+                <a th:href="${'sletReservation/' + reservation.reservationID}">
+                    <button class="btn btn-danger">Slet</button>
                 </a>
             </td>
             <!--<td>
