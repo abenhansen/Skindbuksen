@@ -5,8 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class ReservationsController {
@@ -15,15 +14,12 @@ public class ReservationsController {
     ReservationRepository reservationRepository;
 
     @RequestMapping(value="/reservationInfo")
-    public String reservationInfo(Model model){
+    public String reservationInfo(Model model) {
         List<Reservation> all = reservationRepository.findAll();
+        GregorianCalendar greg = new GregorianCalendar();
+        Collections.sort(all, Collections.reverseOrder());
         model.addAttribute("reservationer", all);
         return "reservationInfo";
-    }
-
-    @RequestMapping(value="/reservationKalender")
-    public String reservationKalender(Model model){
-        return "reservationKalender";
     }
 
     @GetMapping("/OpretReservation")
@@ -42,6 +38,7 @@ public class ReservationsController {
     public String redigerReservation(@PathVariable Integer id, Model model)   {
         model.addAttribute("reservation", reservationRepository.findById(id));
         model.addAttribute("reservationer", reservationRepository.findAll());
+        System.out.println(reservationRepository.findById(id));
         return "redigerReservation";
     }
 

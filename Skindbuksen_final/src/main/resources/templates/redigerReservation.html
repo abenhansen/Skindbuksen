@@ -19,7 +19,7 @@
         <p>ID</p>
         <!--<input type="number" th:value="${reservation.reservationID}" readonly>-->
         <!--<input type="text" th:field="${reservation.reservationID}" />-->
-        <input type="number" name="ID" th:field="${reservation.reservationID}"/>
+        <input type="hidden" name="ID" th:field="${reservation.reservationID}"/>
         <p>Fornavn</p>
         <input type="text" th:field="${reservation.fornavn}"/>
         <p>Efternavn</p>

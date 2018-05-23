@@ -4,7 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-public class Reservation {
+
+public class Reservation implements Comparable<Reservation> {
     private int reservationID;
     private int bordNr;
     private int antal;
@@ -27,6 +28,7 @@ public class Reservation {
     public Reservation(){
 
     }
+
 
     public int getReservationID() {
         return reservationID;
@@ -97,7 +99,7 @@ public class Reservation {
                 '}';
     }
 
-    
-
-
+    public int compareTo(Reservation o) {
+        return getDato().compareTo(o.getDato());
+    }
 }

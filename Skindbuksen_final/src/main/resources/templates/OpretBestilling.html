@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
+    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a ><button class="menubutton">Reservationer</button></a></li>
+        <li><a ><button class="menubutton">Bestillinger</button></a></li>
+        <li><a ><button class="menubutton">Ansatte</button></a></li>
+        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+    </ul>
+</header>
+<p class="detailhead">Opret ny bestilling</p>
+<form method="Post" th:action="@{/OpretBestilling}">
+    <label>Retter:</label>
+    <input type="text" th:field="${bestilling.retter}" required="true" />
+    <label>Total Pris:</label>
+    <input type="number" th:field="${bestilling.totalpris}" required="true" />
+    <label>Bord:</label>
+    <input type="number" th:field="${bestilling.bord}" required="true" />
+    <input type="submit" value="Send" />
+</form>
+</body>
+</html>
