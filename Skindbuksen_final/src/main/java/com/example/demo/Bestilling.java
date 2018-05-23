@@ -3,7 +3,7 @@ package com.example.demo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+//En klasse for bestilling, her sætter Bestillingrepository alt sin data ind
 public class Bestilling {
     private int id;
     private String retter;

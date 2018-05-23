@@ -1,5 +1,6 @@
 package com.example.demo;
 
+//En klasse for Brugere i systemet, her sætter Brugerrepository alt sin data ind
 public class Bruger {
     private Long brugerID;
     private String username;

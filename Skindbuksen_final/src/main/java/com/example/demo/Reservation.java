@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 
+//En klasse for reservation i systemet, her sætter reservationRepository alt sin data ind
 public class Reservation implements Comparable<Reservation> {
     private int reservationID;
     private int bordNr;

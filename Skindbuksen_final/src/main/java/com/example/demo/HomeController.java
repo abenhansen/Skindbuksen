@@ -14,21 +14,26 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    //her initializer vi vores repository
     @Autowired
    BrugerRepository brugerRepository;
+    @Autowired
+    MaaltidRepository maaltidRepository;
 
+    //Forside
     @RequestMapping(value="/")
     public String home(){
         return "home";
     }
-
+    //Side for brugere
     @RequestMapping(value="/user")
     public String user(){
         return "user";
     }
-
+    //Side kun admin har adgang til
     @RequestMapping(value="/admin")
     public String admin(Model model){
+        //Henter alle brugere
         List<Bruger> all = brugerRepository.findAll();
         model.addAttribute("brugere", all);
         return "admin";
@@ -45,16 +50,24 @@ public class HomeController {
         model.addAttribute("brugere", brugerRepository.findAll());
         return "redirect:admin";
     }
-
+    //Vores login side
     @RequestMapping(value="/login")
     public String login(){
         return "login";
     }
-
+    //Fejl besked hvis man ikke har admin adgang
     @RequestMapping(value="/403")
     public String Error403(){
         return "403";
     }
+
+    @RequestMapping("/menukort")
+    public String menukort(Model model) {
+        List<Maaltid> all = maaltidRepository.findAll();
+        model.addAttribute("menuer", all);
+        return "menukort";
+    }
+
 
 
 }

@@ -9,13 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-
+//Repository til Reservations databasen
 @Repository
 public class ReservationRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    //Sætter data fra databasen ind i reservations objektet
     class UserRowMapper implements RowMapper<Reservation> {
         @Override
         public Reservation mapRow(ResultSet rs, int rowNum) throws SQLException {

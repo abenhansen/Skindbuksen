@@ -1,5 +1,6 @@
 package com.example.demo;
 
+//klasse til retter
 public class Maaltid {
     private int id;
     private String navn;

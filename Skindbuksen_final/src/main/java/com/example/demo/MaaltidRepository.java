@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+//Repository til at hentte Maaltider fra databasen
 @Repository
 public class MaaltidRepository {
 
