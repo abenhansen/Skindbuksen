@@ -93,10 +93,11 @@
     <p></p>
     <h2>Er du sikker på at du vil slette denne bruger?</h2>
     <p></p>
-    <form action="#" th:action="@{/sletReservation}" method="post">
-        <input type="hidden" th:field="${reservation.reservationID}"/>
+    <form action="#" th:action="@{/sletBruger}" method="post">
+        <input type="hidden" th:field="${bruger.id}"/>
         <input class="btn-create" type="submit" value="YES"/>
-        <a href="/reservationInfo" class="btn-edit">NO</a>
+        <a href="/brugerInfo" class="btn-edit">NO</a>
     </form>
 </div>
 </body>
+</html>

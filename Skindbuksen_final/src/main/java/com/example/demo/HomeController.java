@@ -75,6 +75,20 @@ public class HomeController {
         return "brugerInfo";
     }
 
+    @GetMapping(value="/sletBruger/{id}")
+    public String sletBruger(@PathVariable("id") int id, Model model) {
+        model.addAttribute("bruger", brugerRepository.findById(id));
+        model.addAttribute("brugere", brugerRepository.findAll());
+        return "sletBruger";
+    }
+
+    @PostMapping(value="/sletBruger")
+    public String sletBruger(@ModelAttribute Bruger bruger, Model model) {
+        //Sletter en en reservation via id
+        brugerRepository.deleteById(bruger.getId());
+        model.addAttribute("brugere", brugerRepository.findAll());
+        return "redirect:brugerInfo";
+    }
 
 
 }
