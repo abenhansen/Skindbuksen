@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" href="css.css"/>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Forms.css"/>
+    <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
+
 </head>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
-<p class="detailhead">Opret ny reservation</p>
+<p>Opret ny reservation</p>
+<p></p>
 <form method="Post" th:action="@{/OpretReservation}">
-    <label>Bord Nr:</label>
+    <p>Bord Nr:</p>
     <input type="number" th:field="${reservation.bordNr}" required="true" />
-    <label>Antal</label>
+    <p>Antal</p>
     <input type="number" th:field="${reservation.antal}" required="true" />
-    <label>Tidspunkt:</label>
+    <p>Tidspunkt:</p>
     <input type="time" name="tid" th:field="${reservation.tidspunkt}" required="true" />
-    <label>Dato</label>
+    <p>Dato</p>
     <input type="date" th:field="${reservation.dato}" required="true" />
-    <label>Fornavn</label>
+    <p>Fornavn</p>
     <input type="text" th:field="${reservation.fornavn}" required="true" />
-    <label>Efternavn</label>
+    <p>Efternavn</p>
     <input type="text" th:field="${reservation.efternavn}" required="true" />
-    <input type="submit" value="Send" />
+    <p></p>
+    <input class="btn-create" type="submit" value="Send" />
 </form>
 </body>
 </html>

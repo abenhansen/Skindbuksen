@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: sans-serif;
+}
+
+
+.menubutton    {
+    color: black;
+    background-color: cornflowerblue;
+    border-radius: 1px;
+    padding: 5px;
+}
+li  {
+    float: left;
+}
+
+li a    {
+    display: block;
+    text-align: center;
+}
+
+
+ul  {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: cornflowerblue;
+}
+
+.menubutton button:hover {
+    color: floralwhite;
+}
+
+.menubutton input:hover {
+    color: floralwhite;
+}
+

@@ -14,7 +14,7 @@ public class ReservationsController {
     ReservationRepository reservationRepository;
 
     //Metode til at vise en lise over alle reservationer
-    @RequestMapping(value="/reservationInfo")
+        @RequestMapping(value="/reservationInfo")
     public String reservationInfo(Model model) {
         //Sætter alle reservationer fra databasen ind i en Liste
         List<Reservation> all = reservationRepository.findAll();
@@ -33,7 +33,8 @@ public class ReservationsController {
     public String OpretReservation(@ModelAttribute Reservation reservation, Model model) {
         //Sætter en ny reservation ind i databasen
         reservationRepository.insert(reservation);
-        model.addAttribute("reservationer", reservationRepository.findAll());
+        model.addAttribute(
+                "reservationer", reservationRepository.findAll());
         return "redirect:reservationInfo";
     }
     //Redigere en reservation via dets id

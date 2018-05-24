@@ -20,10 +20,10 @@ public class BrugerRepository {
         @Override
         public Bruger mapRow(ResultSet rs, int rowNum) throws SQLException {
             Bruger bruger = new Bruger();
-            bruger.setBrugerID(rs.getLong("user_role_id"));
+            bruger.setId(rs.getLong("id"));
             bruger.setUsername(rs.getString("username"));
             bruger.setPassword(rs.getString("password"));
-            bruger.setRoles(rs.getString("role"));
+            bruger.setRoles(rs.getString("roles"));
             bruger.setEnabled(rs.getBoolean("enabled"));
             return bruger;
         }
@@ -34,12 +34,12 @@ public class BrugerRepository {
         }
     //finder en bruger via ID i databasen
     public Bruger findById(long id) {
-        return jdbcTemplate.queryForObject("select * from users where user_role_id=?", new Object[] { id },
+        return jdbcTemplate.queryForObject("select * from users where id=?", new Object[] { id },
                 new BeanPropertyRowMapper<Bruger>(Bruger.class));
     }
     //sletter en bruger via ID
     public int deleteById(long id) {
-        return jdbcTemplate.update("delete from users where user_role_id=?", new Object[] { id });
+        return jdbcTemplate.update("delete from users where id=?", new Object[] { id });
     }
 
     //Tilføjer bruger til databasen
@@ -49,8 +49,8 @@ public class BrugerRepository {
         }
     //opdaterer en bruger i databasen
     public int update(Bruger bruger) {
-        return jdbcTemplate.update("update users set role = ?, password = ?, username = ? where user_role_id = ?",
-                new Object[] { bruger.isEnabled(), bruger.getRoles(), bruger.getPassword(), bruger.getUsername(), bruger.getBrugerID() });
+        return jdbcTemplate.update("update users set role = ?, password = ?, username = ? where id = ?",
+                new Object[] { bruger.isEnabled(), bruger.getRoles(), bruger.getPassword(), bruger.getUsername(), bruger.getId() });
     }
 
 

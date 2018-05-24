@@ -16,7 +16,7 @@ public class ReservationRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    //Sætter data fra databasen ind i reservations objektet
+    // Nested class der sætter data fra databasen ind i et reservations objekt
     class UserRowMapper implements RowMapper<Reservation> {
         @Override
         public Reservation mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -37,10 +37,10 @@ public class ReservationRepository {
     }
 
 
-    public Reservation findById(int id) {
-        return jdbcTemplate.queryForObject("select * from reservationer where reservationID=?", new Object[] { id },
-                new BeanPropertyRowMapper<Reservation>(Reservation.class));
-    }
+        public Reservation findById(int id) {
+            return jdbcTemplate.queryForObject("select * from reservationer where reservationID=?", new Object[] { id },
+                    new BeanPropertyRowMapper<Reservation>(Reservation.class));
+        }
 
 
     public int deleteById(int id) {

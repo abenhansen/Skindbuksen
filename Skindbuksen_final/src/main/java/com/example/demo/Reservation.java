@@ -99,7 +99,8 @@ public class Reservation implements Comparable<Reservation> {
                 ", efternavn='" + efternavn + '\'' +
                 '}';
     }
-
+    //Overrider compareTo fra comparable interfacen som er en metode der sortere objekter med deres dato fields
+    @Override
     public int compareTo(Reservation o) {
         return getDato().compareTo(o.getDato());
     }

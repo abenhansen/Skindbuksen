@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Tables.css"/>
 </head>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
+<p></p>
+<p></p>
 <a href="OpretBestilling">
-    <button class="btn btn-primary">create</button>
+    <button class="btn-create">Opret Bestilling</button>
 </a>
-<table class="table table-striped table-bordered table-hover">
+<table class="">
     <thead>
     <tr>
         <th>ID</th>
@@ -31,12 +35,12 @@
         <td th:text="${bestilling.retter}"/>
         <td th:text="${bestilling.totalpris}"/>
         <td th:text="${bestilling.bord}"/>
-        <td>
+        <td style="border: none">
           <a th:href="${'redigerBestilling/' + bestilling.id}">
-                <button class="btn btn-warning">Rediger</button>
+                <button class="btn-edit">Rediger</button>
             </a>
             <a th:href="${'sletBestilling/' + bestilling.id}">
-                <button class="btn btn-danger">Færdigør bestilling</button>
+                <button class="btn-finish">Færdigør bestilling</button>
             </a>
         </td>
         <!--<td>

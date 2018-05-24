@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-
     <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
-    <link rel="stylesheet" type="text/css" th:href="Forms.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Tables.css"/>
     <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
 </head>
 <body>
@@ -16,20 +15,30 @@
             <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
-<p></p>
-<p></p>
-<h1>Opret ny bestilling</h1>
-<p></p>
-<p></p>
-<form method="Post" th:action="@{/OpretBestilling}">
-    <p>Retter:</p>
-    <input class="input" type="text" th:field="${bestilling.retter}" required="true"/>
-    <p>Total Pris:</p>
-    <input type="number" th:field="${bestilling.totalpris}" required="true" />
-    <p>Bord:</p>
-    <input type="number" th:field="${bestilling.bord}" required="true" />
-    <p></p>
-    <input class="btn-create" type="submit" value="Send"/>
-</form>
+<a href="OpretBruger">
+    <button class="btn-create">create</button>
+</a>
+<table>
+    <thead>
+    <tr>
+        <th>Bruger ID</th>
+        <th>Username</th>
+        <th>User Role</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bruger: ${brugere}">
+        <td th:text="${bruger.id}"/>
+        <td th:text="${bruger.username}"/>
+        <td th:text="${bruger.roles}"/>
+        <td>
+           <!-- <a th:href="${'sletReservation/' + reservation.reservationID}">
+                <button class="btn-finish">Slet</button>
+            </a>-->
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

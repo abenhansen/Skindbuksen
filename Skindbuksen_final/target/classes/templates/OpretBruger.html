@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" href="css.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Forms.css"/>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
 </head>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
 <form method="Post" th:action="@{/OpretBruger}">
-    <label>Username:</label>
+    <p>Username</p>
     <input type="text" th:field="${bruger.username}" required="true" />
-    <label>Password</label>
+    <p>Password</p>
     <input type="password" th:field="${bruger.password}" required="true" />
-    <label>Role:</label>
+    <p>Role</p>
     <input type="radio" name="role" th:value="ROLE_USER"  th:field="${bruger.roles}" required>Bruger </input>
     <input type="radio" name="role" th:value="ROLE_ADMIN" th:field="${bruger.roles}" >Admin </input>
-    <input type="submit" value="Send" />
+    <p></p>
+    <input class="btn-create" type="submit" value="Send" />
 </form>
 </body>
 </html>

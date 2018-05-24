@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Checker om du er en registreret bruger
                 .usersByUsernameQuery("select username,password, enabled from users where username=?")
                 //tjekker din rolle i systemet om du er admin eller bruger
-                .authoritiesByUsernameQuery("select username, role from users where username=?");
+                .authoritiesByUsernameQuery("select username, roles from users where username=?");
     }
     //metoder til at give bruger adgang eller spære for en side
     @Override
@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
                 .permitAll();
+        //Siden man bliver omdirigeret til hvis man ikke er admin
         http.exceptionHandling().accessDeniedPage("/403");
     }
 }

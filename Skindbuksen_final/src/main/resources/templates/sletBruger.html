@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>sletBestilling</title>
+    <title>sletReservation</title>
 </head>
 <style>
+
     *{
         margin: 0;
         padding: 0;
@@ -85,19 +86,17 @@
         border-radius: 2px;
         padding: 5px;
     }
+
 </style>
 <body>
 <div>
     <p></p>
-    <h1>Er du sikker på at du vil slette?</h1>
-
-    <form action="#" th:action="@{/sletBestilling}" method="post">
-        <p>Færdigør bestilling?</p>
-        <p></p>
-        <input type="hidden" th:field="${bestilling.id}"/>
-        <input class="btn-finish" type="submit" value="YES"/>
-        <a href="/BestillingInfo" class="btn-edit">NO</a>
+    <h2>Er du sikker på at du vil slette denne bruger?</h2>
+    <p></p>
+    <form action="#" th:action="@{/sletReservation}" method="post">
+        <input type="hidden" th:field="${reservation.reservationID}"/>
+        <input class="btn-create" type="submit" value="YES"/>
+        <a href="/reservationInfo" class="btn-edit">NO</a>
     </form>
 </div>
 </body>
-</html>

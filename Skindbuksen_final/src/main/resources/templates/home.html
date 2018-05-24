@@ -3,21 +3,21 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" href="css.css"/>
 </head>
-<body>
-<header>
-    <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
-    </ul>
-</header>
+<style>
+    button  {
+        background-color: cornflowerblue;
+        border-radius: 1px;
+        border-color: cornflowerblue;
+        width: 10%;
+        text-align-all: center;
+    }
+</style>
+<body style="font-family: sans-serif">
 <h1>Login</h1>
-<a style="color: blue" th:href="@{/user}">Bruger Login</a>
-<br />
-<a style="color: blue" th:href="@{/admin}">Admin Login</a>
+<div>
+    <a th:href="@{/user}"><button>Bruger Login</button></a>
+    <a th:href="@{/admin}"><button>Admin Login </button></a>
+</div>
 </body>
 </html>

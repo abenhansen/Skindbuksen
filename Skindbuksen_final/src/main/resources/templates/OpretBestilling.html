@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" th:href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" th:href="css.css"/>
+
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Forms.css"/>
+    <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
 </head>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
-<p class="detailhead">Opret ny bestilling</p>
+<p></p>
+<p></p>
+<h1>Opret ny bestilling</h1>
+<p></p>
+<p></p>
 <form method="Post" th:action="@{/OpretBestilling}">
-    <label>Retter:</label>
-    <input type="text" th:field="${bestilling.retter}" required="true" />
-    <label>Total Pris:</label>
+    <p>Retter:</p>
+    <input class="input" type="text" th:field="${bestilling.retter}" required="true"/>
+    <p>Total Pris:</p>
     <input type="number" th:field="${bestilling.totalpris}" required="true" />
-    <label>Bord:</label>
+    <p>Bord:</p>
     <input type="number" th:field="${bestilling.bord}" required="true" />
-    <input type="submit" value="Send" />
+    <p></p>
+    <input class="btn-create" type="submit" value="Send"/>
 </form>
 </body>
 </html>

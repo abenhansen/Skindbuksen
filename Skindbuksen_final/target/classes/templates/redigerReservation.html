@@ -1,24 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" href="css.css"/>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="Forms.css"/>
 </head>
+<style>
+
+    input[type=text] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=number] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=password] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=time] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=date] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=hidden] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+
+
+    *{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+        font-family: sans-serif;
+    }
+
+
+    .menubutton    {
+        color: black;
+        background-color: cornflowerblue;
+        border-radius: 1px;
+        padding: 5px;
+    }
+    li  {
+        float: left;
+    }
+
+    li a    {
+        display: block;
+        text-align: center;
+    }
+
+
+    ul  {
+        list-style-type: none;
+        overflow: hidden;
+        background-color: cornflowerblue;
+    }
+
+    .menubutton button:hover {
+        color: floralwhite;
+    }
+
+    .menubutton input:hover {
+        color: floralwhite;
+    }
+
+
+    .btn-create {
+        border: 1px solid dimgrey;
+        background-color: lawngreen;
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .btn-finish {
+        border: 1px solid dimgrey;
+        background-color: lawngreen;
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .btn-edit   {
+        border: 1px solid dimgrey;
+        background-color: orange;
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+</style>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
 <h1>Redigering af Reservation</h1>
 <div>
     <form method="Post" th:action="@{/redigerReservation}">
-        <p>ID</p>
-        <!--<input type="number" th:value="${reservation.reservationID}" readonly>-->
-        <!--<input type="text" th:field="${reservation.reservationID}" />-->
+        <p></p>
         <input type="hidden" name="ID" th:field="${reservation.reservationID}"/>
         <p>Fornavn</p>
         <input type="text" th:field="${reservation.fornavn}"/>
@@ -32,7 +148,8 @@
         <input type="time" th:field="${reservation.tidspunkt}"/>
         <p>Bord nummer</p>
         <input type="text" th:field="${reservation.bordNr}"/>
-        <input type="submit" value="Send"/>
+        <p></p>
+        <input class="btn-create" type="submit" value="Send"/>
     </form>
 </div>
 </body>

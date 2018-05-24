@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS Skindbuksen.reservationer (
 
 
 CREATE TABLE IF NOT EXISTS Skindbuksen.users (
-  `user_role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `role` varchar(20) NOT NULL,
+  `roles` varchar(20) NOT NULL,
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`user_role_id`),
-  UNIQUE KEY `uni_username_role` (`role`,`username`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uni_username_roles` (`roles`,`username`)
 );

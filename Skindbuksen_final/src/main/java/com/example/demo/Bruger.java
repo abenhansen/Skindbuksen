@@ -2,7 +2,7 @@ package com.example.demo;
 
 //En klasse for Brugere i systemet, her sætter Brugerrepository alt sin data ind
 public class Bruger {
-    private Long brugerID;
+    private Long id;
     private String username;
     private String password;
     private String roles;
@@ -12,8 +12,8 @@ public class Bruger {
 
     }
 
-    public Bruger(Long brugerID, String username, String password, String roles, boolean enabled) {
-        this.brugerID = brugerID;
+    public Bruger(Long id, String username, String password, String roles, boolean enabled) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.roles = roles;
@@ -26,12 +26,12 @@ public class Bruger {
         this.roles = roles;
     }
 
-    public Long getBrugerID() {
-        return brugerID;
+    public Long getId() {
+        return id;
     }
 
-    public void setBrugerID(Long brugerID) {
-        this.brugerID = brugerID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {

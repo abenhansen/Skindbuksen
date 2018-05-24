@@ -2,25 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<link rel="Stylesheet" type="text/css" href="admin_stylesheet.css"/>
-<link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-<link rel="Stylesheet" type="text/css" href="css.css"/>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
 </head>
 <body>
 <header>
     <ul>
-    <li><a ><button class="menubutton">Reservationer</button></a></li>
-    <li><a ><button class="menubutton">Bestillinger</button></a></li>
-    <li><a ><button class="menubutton">Menukort</button></a></li>
-    <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
-</ul>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton"><a th:href="@{OpretBruger}"><button>Opret en ny bruger</button></a></li>
+        <li class="menubutton"><a th:href="@{brugerInfo}"><button>BrugerInfo</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
+    </ul>
 </header>
 <h1>Admin side</h1>
-<a style="color: blue" th:href="@{/}">Home</a>
-<a style="color: blue" th:href="@{OpretBruger}">Opret en ny bruger</a>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out" />
-</form>
 </body>
 </html>
-

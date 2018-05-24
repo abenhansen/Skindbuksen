@@ -3,12 +3,20 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="Stylesheet" type="text.css" th:href="Stylesheet.css"/>
     <title>Security with Spring Boot</title>
 </head>
-<body>
+<style>
+    button, input  {
+        background-color: cornflowerblue;
+        border-radius: 1px;
+        border-color: cornflowerblue;
+        width: 10%;
+        text-align-all: center;
+    }
+</style>
+<body style="font-family: sans-serif">
 <h1>Access is Denied!</h1>
-<a style="color: blue" th:href="@{/}">Home</a>
+<a th:href="@{/}"><button>Try again</button></a>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out" />
 </form>

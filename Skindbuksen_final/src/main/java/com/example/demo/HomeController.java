@@ -68,6 +68,13 @@ public class HomeController {
         return "menukort";
     }
 
+    @RequestMapping("/brugerInfo")
+    public String brugerInfo(Model model) {
+        List<Bruger> all = brugerRepository.findAll();
+        model.addAttribute("brugere", all);
+        return "brugerInfo";
+    }
+
 
 
 }

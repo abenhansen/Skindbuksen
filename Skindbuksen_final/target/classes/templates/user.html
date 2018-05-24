@@ -3,25 +3,19 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="Stylesheet" type="text/css" href="Stylesheet.css"/>
-    <link rel="Stylesheet" type="text/css" href="css.css"/>
+    <link rel="stylesheet" type="text/css" th:href="headerAndReset.css"/>
+    <link rel="stylesheet" type="text/css" th:href="otherbuttons.css"/>
+
 </head>
 <body>
 <header>
     <ul>
-        <li><a ><button class="menubutton">Reservationer</button></a></li>
-        <li><a ><button class="menubutton">Bestillinger</button></a></li>
-        <li><a ><button class="menubutton">Menukort</button></a></li>
-        <li style="float: right"><a><button class="menubutton">Log ud</button></a></li>
+        <li class="menubutton"><a th:href="reservationInfo"><button>Reservationer</button></a></li>
+        <li class="menubutton"><a  th:href="BestillingInfo"><button>Bestillinger</button></a></li>
+        <li class="menubutton"><a th:href="menukort"><button>Menukort</button></a></li>
+        <li class="menubutton" style="float: right"><form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" /></form></li>
     </ul>
 </header>
 <h1>Bruger side</h1>
-<a style="color: blue" th:href="@{reservationInfo}">Reservationer</a>
-<a style="color: blue" th:href="@{/}">Home</a>
-<a style="color: blue" th:href="@{BestillingInfo}">Bestillinger</a>
-<a style="color: blue" th:href="@{menukort}">Menukort</a>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out" />
-</form>
-</body>
 </html>

@@ -1,17 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Title</title>
+    <title>sletBestilling</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+        font-family: sans-serif;
+    }
+
+
+    input[type=text] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=number] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=password] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=time] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=date] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+    input[type=hidden] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: solid 1px dimgrey;
+        border-radius: 2px;
+    }
+
+    .btn-create {
+        border: 1px solid dimgrey;
+        background-color: lawngreen;
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .btn-finish {
+        border: 1px solid dimgrey;
+        background-color: lawngreen;
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .btn-edit   {
+        border: 1px solid dimgrey;
+        background-color: orange;
+        border-radius: 2px;
+        padding: 5px;
+    }
+</style>
 <body>
-<div class="sletDiv">
-    <h2>Are you sure you want to delete</h2>
+<div>
+    <p></p>
+    <h1>Er du sikker på at du vil slette?</h1>
 
     <form action="#" th:action="@{/sletBestilling}" method="post">
         <p>Færdigør bestilling?</p>
+        <p></p>
         <input type="hidden" th:field="${bestilling.id}"/>
-        <input class="btn btn-danger" type="submit" value="YES"/>
-        <a href="/BestillingInfo" class="btn btn-create w">NO</a>
+        <input class="btn-finish" type="submit" value="YES"/>
+        <a href="/BestillingInfo" class="btn-edit">NO</a>
     </form>
 </div>
 </body>
